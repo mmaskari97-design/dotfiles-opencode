@@ -1,0 +1,16 @@
+# Secrets — never commit these
+*key*
+*token*
+*secret*
+auth.json
+mcp-auth.json
+.env
+
+# Backups / scratch
+*.bak
+openrouter.key
+
+# Databases (call logs, sessions)
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
