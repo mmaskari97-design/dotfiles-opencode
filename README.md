@@ -13,9 +13,29 @@ dotfiles-opencode/
 ├── opencode/opencode.jsonc   # OpenCode config (models, provider, MCPs)
 ├── mcpo/config.json          # MCP proxy (mcpo) server config
 ├── restore.sh                # Copies files back to ~/.config/
+├── PROACTIVE.md              # Full proactive GitHub MCP playbook
+├── TRENDING.md               # Trending tools — avoid rebuilds & breakage
+├── scripts/refresh-trending.sh # Refresh TRENDING.md (manual or weekly)
 ├── .gitignore                # Blocks secrets & junk from ever being committed
 └── README.md
 ```
+
+## Proactive development system (anti-breakage)
+
+**Rule:** never build from scratch if it exists. Before ANY build, search
+GitHub, mimic the best existing repo, then fork + customize.
+
+- **PROACTIVE.md** — the full playbook: ordered search steps (repos → code →
+  issues → read file), available GitHub MCP tools, and the fork-mimic-
+  customize philosophy.
+- **TRENDING.md** — curated list of trending, maintained tools per category
+  (auth, dashboard/UI, MCP servers, boilerplates). **Check this file first**
+  when starting something new.
+- **scripts/refresh-trending.sh** — refreshes TRENDING.md via
+  `github_search_repositories`; run weekly or on demand.
+
+Requires `GITHUB_PERSONAL_ACCESS_TOKEN` to be set (see Secrets system below) —
+without it the GitHub MCP is inactive and all proactive calls fail.
 
 ## Secrets system — ZERO plaintext secrets
 
